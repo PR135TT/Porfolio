@@ -1,0 +1,277 @@
+:root {
+	--background:#28364f;
+	--background1:#c8aff0;
+	--background2:#fad14b;
+	--background3:#b4db18;
+	--background4:pink;
+	--background5:#8a2055;
+	--background6:white;
+	--background7:#ff8c19;
+	--background8:#3ed3ed;
+}
+
+body {
+	background:var(--background6);
+}
+
+#grid-box {
+	display:grid;
+	grid-template-columns:repeat(3, 1fr);
+	grid-auto-rows: 270px;
+	grid-gap:10px;
+	max-width:2000px;
+}
+
+#grid-box div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 8px;
+	transition: all 0.3s ease;
+	cursor: pointer;
+	text-align: center;
+}
+
+#grid-box div:hover {
+	background:black;
+	color:white;
+}
+
+/*about me tile*/
+
+#about-me {
+	background:var(--background);
+	color:#b4c8e0;
+	grid-row:span 2;
+	display:flex;
+	overflow:hidden;
+	position:relative;
+}
+
+#about-me .overlay {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	text-align: center;
+	padding: 20px;
+	opacity: 0;
+	transition: opacity 0.4s ease;
+}
+
+#about-me:hover .overlay {
+	background-image:url("images/kda-.jpg");
+	background-size:cover;
+	opacity:1;
+}
+
+/*projects tile*/
+
+#projects {
+	background:var(--background2);
+	color:#694605;
+	position:relative;
+	overflow:hidden;
+}
+
+#projects:hover #projects-title {
+    display: none;
+}
+
+#project .overlay img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#projects .overlay {
+	inset:0;
+	position:absolute;
+	opacity:0;
+}
+
+#projects:hover .overlay {
+	opacity:1;
+}
+
+#projects .overlay button {
+	position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+#projects #prev-btn {
+	left: 30px; 
+}
+
+#projects #next-btn {
+	right: 30px; 
+}
+
+.slide-show {
+	width:100%;
+	height:100%;
+	display:flex;
+	flex-direction:column;
+	overflow:hidden;
+}
+
+.slide-show img {
+	display:block;
+	width:100%;
+	height:100%;
+	flex-grow:1;
+	object-fit:cover;
+	transition:opacity 0.5s ease-in-out;
+	cursor:pointer;
+}
+
+/*skills tile*/
+
+#skills {
+	background:var(--background8);
+	color:#055463;
+	position:relative;
+}
+
+#skills .overlay {
+	opacity:0;
+	inset:0;
+	position:absolute;
+	display:flex;
+	padding:20px;
+}
+
+#skills .overlay li {
+	list-style-type:none;
+	padding:20px;
+}
+
+#skills:hover .overlay {
+	opacity:1;
+	font-size:20px;
+}
+
+/*personal project tile*/
+
+#personal-projects {
+	background:var(--background3);
+	color:#175742;
+	grid-column:span 1;
+}
+
+/*Contact tile*/
+
+#contact {
+	background:var(--background5);
+	color:#ffb0a6;
+	position:relative;
+	flex-direction:column;
+	font-size:20px;
+}
+
+#contact ul {
+	list-style-type:none;
+}
+
+#contact li {
+	padding:8px;
+}
+
+#contact .overlay {
+	padding:20px;
+	opacity:0;
+	inset:0;
+	position:absolute;
+	font-size:25px;
+}
+
+#contact .overlay li {
+	list-style-type:none;
+}
+
+#contact .overlay a {
+	text-decoration:none;
+	color:inherit;
+}
+
+#contact:hover .overlay {
+	opacity:1;
+}
+
+/*services tile*/
+
+#services {
+	background:var(--background7);
+	color:#6e2e09;
+	grid-column:span 2;
+	position:relative;
+	flex-direction:column;
+}
+
+#services .overflow {
+	font-size:20px;
+	display:block;
+	opacity:0;
+	position:absolute;
+	inset:0;
+}
+
+#services:hover .overflow {
+	opacity:1;
+}
+
+/*work in progress tile*/
+
+#wip {
+	background:var(--background1);
+	color:#692761;
+}
+
+#title {
+	margin-left:20px;
+	font-size:20px;
+	font-family:times new roman;
+	font-weight:bold;
+}
+
+/*smaller screen*/
+
+@media (max-width: 900px) {
+	#grid-box {
+		grid-template-columns: 1fr;
+		grid-auto-rows: 200px;
+	}
+	
+	.slide-show {
+	width:100%;
+	height:100%;
+	display:flex;
+	flex-direction:column;
+	overflow:hidden;
+	}
+
+	.slide-show img {
+	display:block;
+	width:100%;
+	height:100%;
+	flex-grow:1;
+	object-fit:cover;
+	transition:opacity 0.5s ease-in-out;
+	cursor:pointer;
+	}
+	
+	#wip {
+		grid-column:span 2;
+	}
+}
